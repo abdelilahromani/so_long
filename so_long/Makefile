@@ -1,12 +1,13 @@
 NAME = so_long
 
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 
 CC = cc
 
 SRCF = get_next_linev2/get_next_line.c \
 	  get_next_linev2/get_next_line_utils.c \
 	  parcing/parc_utils1.c \
+	  parcing/floodfill.c \
 	  src/ft_strcmp.c \
 	  src/ft_strdup.c \
 	  src/ft_strjoin.c \

@@ -6,18 +6,18 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 10:17:33 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/20 17:55:17 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/24 20:23:10 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_free(char **p, size_t index)
+void	ft_free(char **p)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < index)
+	while (p[i])
 	{
 		free (p[i]);
 		i++;
@@ -43,7 +43,7 @@ static char	**filler(char **str, char const *s, char c, size_t wo)
 		str[wn] = malloc(end + 1);
 		if (!str[wn])
 		{
-			ft_free(str, wn);
+			ft_free(str);
 			return (NULL);
 		}
 		start = ft_strcpy(str[wn], s, start, c);

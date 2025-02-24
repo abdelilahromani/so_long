@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:22:04 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/23 20:28:42 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/24 20:24:52 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,11 @@ int main(int ac,char **av)
 
     i = 0;
     atexit(f);
+    
     game = NULL;
     map_validation(&game,ac,av);
-    printf("collect = %d\n",(game)->coll);
-    printf("Exit = %d\n",(game)->exit);
-    printf("position = %d\n",(game)->pos);
-    while (game->map[i])
-        printf("%s \n", game->map[i++]);
+    // while (game->map[i])
+    //     printf("%s \n", game->map[i++]);
     // if(map_validation(&game,ac,av) == 0)
     // {
     //     printf("unvalid map");

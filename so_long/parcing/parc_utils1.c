@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 19:10:45 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/23 20:54:00 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/24 21:09:20 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void filler(char **str, t_game **game)
         j = 0;
         while (str[i][j] != '\0')
         {
-            if (str[i][j] == 'P')
+            if (str[i][j] == 'P') 
                 (*game)->pos++;
             else if (str[i][j] == 'C')
                 (*game)->coll++;
@@ -119,7 +119,7 @@ int get_map(t_game **game,int fd)
         free(tmp);
         free((*game)->line_map);
     }
-    return (1);
+    return (close(fd), 1);
 }
 
 int check_rec(char **str)
@@ -165,7 +165,6 @@ int wall_check(char **str)
     if (ft_strlen(str[i]) != len)
         return (0);
     return (1);
-    
 }
 
 #include <stdio.h>
@@ -185,12 +184,14 @@ int map_validation(t_game **game, int ac, char **av)
         return (0);
     get_map(game,fd);
     if (map(game) == 0)
-        return (write (2, "unvalid map\n" ,12), exit(1), 0);
+        return (write (2, "unvalid map\n" ,12),ft_free((*game)->map), free((*game)->lines), free(*game), 0);
     if (check_rec((*game)->map) == 0)
-        return (write (2, "unvalid rec\n" ,12), exit(1), 0);
+        return (write (2, "unvalid map\n" ,12),ft_free((*game)->map), free((*game)->lines), free(*game), 0);
     if (wall_check((*game)->map) == 0)
-        return (write (2, "unvalid wall\n" ,12),exit(1), 0);
+        return (write (2, "unvalid map\n" ,12),ft_free((*game)->map), free((*game)->lines), free(*game), 0);
     if (checker((*game)->map, game) == 0)
-        return (write (2, "last unvalid\n" ,12),exit(1), 0);
+        return (write (2, "unvalid map\n" ,12),ft_free((*game)->map), free((*game)->lines), free(*game), 0);
+    map_copy(game);
     return (0);
 }
+
