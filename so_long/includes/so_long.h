@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:22:54 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/24 20:24:07 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/26 01:31:41 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include "get_next_line.h"
+#include <mlx.h>
 # include <fcntl.h>
 
 typedef struct game
@@ -29,9 +30,18 @@ typedef struct game
     int exit;
     int pos;
     int x_p;
+    int x_door;
     int y_p;
+    int y_door;
     int withe;
     int hight;
+    void *p_pic;
+    void *w_pic;
+    void *f_pic;
+    void *c_pic;
+    void *e_pic;
+    void *mlx_pointer;
+    void *win_pointer;
     struct game *next;
 }   t_game;
 
@@ -48,5 +58,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_strdup(char *str);
 char	*ft_strjoin(char *s1, char*s2);
 void    map_copy(t_game **map);
+void mlx_draw(t_game **game, char **map);
+int moves_keys(int key_code, t_game *game);
 
 #endif

@@ -6,17 +6,17 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:22:04 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/24 20:24:52 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/25 22:14:59 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/so_long.h"
 #include <stdio.h>
 
-void f()
-{
-    system("leaks so_long");
-}
+// void f()
+// {
+//     system("leaks so_long");
+// }
 
 int main(int ac,char **av)
 {
@@ -24,12 +24,14 @@ int main(int ac,char **av)
     int i;
 
     i = 0;
-    atexit(f);
+    //atexit(f);
     
     game = NULL;
     map_validation(&game,ac,av);
-    // while (game->map[i])
-    //     printf("%s \n", game->map[i++]);
+
+    while (game->map[i])
+        printf("%s \n", game->map[i++]);
+    mlx_draw(&game, (game)->map);
     // if(map_validation(&game,ac,av) == 0)
     // {
     //     printf("unvalid map");

@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:25:08 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/24 21:14:13 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/26 01:38:14 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void find_pos(char **map,t_game **game)
     (*game)->hight = i;
     (*game)->withe = ft_strlen(map[0]);
 }
-
-
 
 void floodfill(t_game **game, char **map, int x, int y, int with, int hight)
 {
@@ -71,7 +69,7 @@ void map_copy(t_game **game)
     e = (*game)->exit;
     floodfill(game,(*game)->map_copy,(*game)->x_p,(*game)->y_p,(*game)->withe, (*game)->hight);
     if ((*game)->coll != 0 || (*game)->exit != 0)
-        return (ft_free((*game)->map_copy), ft_free((*game)->map), free((*game)->lines), free(*game));
+        return (write (2, "Error\n",6) ,ft_free((*game)->map_copy), ft_free((*game)->map), free((*game)->lines), free(*game));
     (*game)->coll = c;
     (*game)->exit = e;
     ft_free((*game)->map_copy);
