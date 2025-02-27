@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:22:54 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 02:59:02 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 04:44:35 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,15 @@ typedef struct game
     void *p_pic;
     void *w_pic;
     void *f_pic;
-    void *c_pic;
+    void *c_pic[2];
     void *e_pic;
+    void *n_pic[4];
     void *mlx_pointer;
     void *win_pointer;
     struct game *next;
 }   t_game;
+
+
 
 int     ft_strcmp(char *s1, char *s2);
 size_t	count_words(char const *str, int sep);

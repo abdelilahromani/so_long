@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "stdio.h": "c",
-        "__node_handle": "c",
-        "so_long.h": "c"
-    }
-}

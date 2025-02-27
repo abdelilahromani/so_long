@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:22:04 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 02:55:50 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 04:03:11 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@
 
 int freea(t_game *game)
 {
-    if ((game)->c_pic)
-        mlx_destroy_image((game)->mlx_pointer,(game)->c_pic);
+    if ((game)->c_pic[0])
+        mlx_destroy_image((game)->mlx_pointer,(game)->c_pic[0]);
+    if ((game)->c_pic[1])
+        mlx_destroy_image((game)->mlx_pointer,(game)->c_pic[1]);
     if ((game)->p_pic)
         mlx_destroy_image((game)->mlx_pointer,(game)->p_pic);
     if ((game)->w_pic)

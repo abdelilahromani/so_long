@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:25:08 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/26 23:30:13 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 04:30:43 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void find_pos(char **map,t_game **game)
 
 void floodfill(t_game **game, char **map, int x, int y, int with, int hight)
 {
-    if (x < 0 || x >= (*game)->withe || y < 0 || y >= (*game)->hight || map[y][x] == '1' || map[y][x] == 'S' || map[y][x] == 'E')
+    if (x < 0 || x >= (*game)->withe || y < 0 || y >= (*game)->hight || map[y][x] == '1' || map[y][x] == 'S' || map[y][x] == 'E' || map[y][x] == 'N')
         return ;
     if (map[y][x] == 'C')
         (*game)->coll--;

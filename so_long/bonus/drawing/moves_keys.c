@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:16:38 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 03:00:57 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 04:33:16 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,33 @@ void moves(t_game *game, int n_x, int n_y)
     }
 }
 
-void drow(t_game **game, char **map)
+void drow(t_game **game)
 {
     int i = 0;
     int j = 0;
 
     mlx_clear_window((*game)->mlx_pointer, (*game)->win_pointer);
-    while (i < (*game)->hight)
+   while (i < (*game)->hight)
     {
-        
         j = 0;
         while (j < (*game)->withe)
         {
-            //mlx_put_image_to_window(mlx, win, (*game)->f_pic, i * size_pic , j * size_pic);
-            if (map[i][j] == '1')
-            {
+            if ((*game)->map[i][j] == '1')
                 mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->w_pic, j * size_pic , i* size_pic);
-            }
-            else if (map[i][j] == 'P')
+            else if ((*game)->map[i][j] == 'P')
             {
                 mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->f_pic, j * size_pic , i * size_pic);
                 mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->p_pic, j * size_pic , i * size_pic);
             }   
-            else if (map[i][j] == 'C')
+            else if ((*game)->map[i][j] == 'C')
             {
                 mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->f_pic, j * size_pic , i * size_pic);
-                mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->c_pic, j * size_pic , i * size_pic);
+                mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->c_pic[(i + j) % 2], j * size_pic , i * size_pic);
             }
-            else if (map[i][j] == 'E')
+            else if ((*game)->map[i][j] == 'E')
                 mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->e_pic, j * size_pic , i * size_pic);
+            else if ((*game)->map[i][j] == 'N')
+                mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->n_pic[(i + j) % 4] , j * size_pic , i * size_pic);
             else
                 mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->f_pic, j * size_pic , i * size_pic);
             j++;
@@ -104,7 +102,7 @@ int moves_keys(int key_code, t_game *game)
     moves(game,n_x,n_y);
     // while (game->map[i])
     //     printf("%s\n",game->map[i++]);
-    drow(&game,game->map);
+    drow(&game);
     mlx_put_image_to_window(game->mlx_pointer, game->win_pointer,game->p_pic,(game->x_p * size_pic), (game->y_p * size_pic));
     //mlx_put_image_to_window(game->mlx_pointer, game->win_pointer,game->e_pic,(game->x_door * size_pic), (game->y_door * size_pic));
     return (0);
