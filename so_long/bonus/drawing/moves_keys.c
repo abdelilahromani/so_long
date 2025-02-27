@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:16:38 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 04:33:16 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 15:55:02 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,17 @@ void moves(t_game *game, int n_x, int n_y)
     }
 }
 
-void drow(t_game **game)
+void animate(t_game *g)
+{
+    g->frames++;
+    if (g->frames > 60)
+    {
+        g->frames = 0;
+        g->c_pic_anime *= -1;
+    }
+}
+
+int drow(t_game **game)
 {
     int i = 0;
     int j = 0;
@@ -64,7 +74,10 @@ void drow(t_game **game)
             else if ((*game)->map[i][j] == 'C')
             {
                 mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->f_pic, j * size_pic , i * size_pic);
-                mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->c_pic[(i + j) % 2], j * size_pic , i * size_pic);
+                if ((*game)->c_pic_anime == 1)
+                    mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->c_pic[0], j * size_pic , i * size_pic);
+                else
+                    mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->c_pic[1], j * size_pic , i * size_pic);
             }
             else if ((*game)->map[i][j] == 'E')
                 mlx_put_image_to_window((*game)->mlx_pointer, (*game)->win_pointer, (*game)->e_pic, j * size_pic , i * size_pic);
@@ -76,6 +89,8 @@ void drow(t_game **game)
         }
         i++;
     }
+    animate(*game);
+    return (0);
 }
 
 int moves_keys(int key_code, t_game *game)
@@ -102,7 +117,6 @@ int moves_keys(int key_code, t_game *game)
     moves(game,n_x,n_y);
     // while (game->map[i])
     //     printf("%s\n",game->map[i++]);
-    drow(&game);
     mlx_put_image_to_window(game->mlx_pointer, game->win_pointer,game->p_pic,(game->x_p * size_pic), (game->y_p * size_pic));
     //mlx_put_image_to_window(game->mlx_pointer, game->win_pointer,game->e_pic,(game->x_door * size_pic), (game->y_door * size_pic));
     return (0);

@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 22:16:38 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 03:00:57 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 14:54:53 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void moves(t_game *game, int n_x, int n_y)
     else if (game->coll == 0 && game->map[n_y][n_x] == 'E')
     {
         ft_printf("you win\n");
-        destroy_free(game,game->mlx_pointer);
+        destroy_free(&game,game->mlx_pointer);
     }
 }
 
@@ -100,7 +100,7 @@ int moves_keys(int key_code, t_game *game)
     else if (key_code == 1)
         n_y++;
     else if (key_code == 53)
-        destroy_free(game, game->mlx_pointer);
+        destroy_free(&game, game->mlx_pointer);
     moves(game,n_x,n_y);
     // while (game->map[i])
     //     printf("%s\n",game->map[i++]);

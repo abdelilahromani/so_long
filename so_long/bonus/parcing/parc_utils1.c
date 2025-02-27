@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 19:10:45 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 02:31:22 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 15:53:25 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ int map_validation(t_game **game, int ac, char **av)
     *game = malloc(sizeof(t_game));
     if (!game)
         return (0);
+    (*game)->frames = 0;
     get_map(game,fd);
     if (map(game) == 0)
         return (ft_printf("unvalid characters !!\n"),ft_free((*game)->map), free((*game)->lines), free(*game), exit(0),0);

@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:22:04 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 02:55:50 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 14:57:14 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int ac,char **av)
     //atexit(f);
     
     game = NULL;
-    map_validation(&game,ac,av);
+    map_validation(&game, ac, av);
     // while (game->map[i])
     //     printf("%s \n", game->map[i++]);
     mlx_draw(&game);

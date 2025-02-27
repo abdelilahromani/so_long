@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:22:04 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 04:03:11 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 15:47:23 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int main(int ac,char **av)
     printf("ijgfigf\n");
     mlx_hook((game)->win_pointer, 2, 0, moves_keys, game);
     mlx_hook((game)->win_pointer, 17, 0, freea, game);
+    mlx_loop_hook((game)->mlx_pointer, drow, &game);
     mlx_loop((game)->mlx_pointer);
     return (0);
     // if(map_validation(&game,ac,av) == 0)

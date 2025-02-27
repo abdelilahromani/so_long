@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:22:54 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 02:59:02 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 14:54:00 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ int wall_check(char **str);
 int check_rec(char **str);
 int map_alpha(char *str);
 int map(t_game **map);
-int destroy_free(t_game *game, void *mlx);
+int destroy_free(t_game **game, void *mlx);
 
 #endif

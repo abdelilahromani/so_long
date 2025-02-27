@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:22:54 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 04:44:35 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 15:51:14 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,14 @@ typedef struct game
     void *w_pic;
     void *f_pic;
     void *c_pic[2];
+    int  c_pic_anime;
+    int frames;
     void *e_pic;
     void *n_pic[4];
     void *mlx_pointer;
     void *win_pointer;
     struct game *next;
 }   t_game;
-
 
 
 int     ft_strcmp(char *s1, char *s2);
@@ -74,5 +75,6 @@ int check_rec(char **str);
 int map_alpha(char *str);
 int map(t_game **map);
 int destroy_free(t_game *game, void *mlx);
+int drow(t_game **game);
 
 #endif

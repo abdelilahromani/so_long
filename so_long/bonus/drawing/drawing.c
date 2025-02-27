@@ -6,7 +6,7 @@
 /*   By: aromani <aromani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 10:27:42 by aromani           #+#    #+#             */
-/*   Updated: 2025/02/27 04:32:49 by aromani          ###   ########.fr       */
+/*   Updated: 2025/02/27 15:43:28 by aromani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void get_images(void *mlx,t_game **game)
     img_hight = size_pic;
     (*game)->c_pic[0] = mlx_xpm_file_to_image(mlx,"./texturess/co1.xpm",&img_with, &img_hight);
     (*game)->c_pic[1] = mlx_xpm_file_to_image(mlx,"./texturess/co0.xpm",&img_with, &img_hight);
+    (*game)->c_pic_anime = 1;
     (*game)->p_pic = mlx_xpm_file_to_image(mlx,"./texturess/pl.xpm",&img_with,&img_hight);
     (*game)->w_pic = mlx_xpm_file_to_image(mlx, "./texturess/wa.xpm",&img_with,&img_hight);
     (*game)->f_pic = mlx_xpm_file_to_image(mlx, "./texturess/f.xpm",&img_with,&img_hight);
@@ -95,5 +96,6 @@ void mlx_draw(t_game **game)
     (*game)->mlx_pointer = mlx_init();
     get_images((*game)->mlx_pointer, game);
     (*game)->win_pointer = mlx_new_window((*game)->mlx_pointer, (*game)->withe * size_pic, (*game)->hight * size_pic, "so_long");
+    // ft_printf("the window is : %p\n", (*game)->win_pointer);
     looping(game,i,j);
 }
